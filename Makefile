@@ -1,4 +1,4 @@
-SRC=$(shell find . -name "*.java")
+SRC=$(shell find ./src -name "*.java")
 
 default: $(SRC)
 	javac -d ./build $(SRC)
