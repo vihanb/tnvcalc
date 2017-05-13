@@ -2,4 +2,4 @@ SRC=$(shell find ./src -name "*.java")
 
 default: $(SRC)
 	javac -d ./build $(SRC)
-	jar cvf VSLCalc.jar ./build/*
+	jar cvfm TNVCalc.jar Manifest.txt -C build/ .
