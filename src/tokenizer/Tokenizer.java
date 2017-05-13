@@ -14,6 +14,11 @@ public class Tokenizer {
         int relativePos = 0;
 
         while (relativePos < source.length()) {
+            // Handle whitespace
+            if (source.charAt(relativePos) == ' ') {
+                relativePos++; continue;
+            }
+
             Token result = null;
             for (TokenType attempt : TokenType.values()) {
                 Pattern regex = attempt.getRegex();
