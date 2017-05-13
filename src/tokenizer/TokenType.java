@@ -3,7 +3,7 @@ package tokenizer;
 import java.util.regex.Pattern;
 
 public enum TokenType {
-    NUMBER("^[\\d]+"),
+    NUMBER("^-?(\\d*\\.\\d+|\\d+)"),
     OPERATOR("^[-+/*^]"),
     LPAREN("^\\("),
     RPAREN("^\\)");
