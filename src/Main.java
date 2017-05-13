@@ -4,10 +4,17 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         Scanner in = new Scanner(System.in);
-        while (true) {
-            System.out.print("tnv> ");
-            System.out.println(Main.evaluate(in.nextLine()));
+        if (System.console() == null) {
+            while (in.hasNextLine()) {
+                System.out.println(Main.evaluate(in.nextLine()));
+            }
+        } else {
+            while (true) {
+                System.out.print("tnv> ");
+                System.out.println(Main.evaluate(in.nextLine()));
+            }
         }
     }
 
