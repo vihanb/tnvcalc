@@ -1,8 +1,6 @@
 package tokenizer;
 
-import java.util.List;
-import java.util.ArrayList;
-
+import java.util.Stack;
 import java.util.regex.*;
 
 public class Tokenizer {
@@ -11,26 +9,27 @@ public class Tokenizer {
     }
 
     private int position;
-    public List<Token> feed(String source) {
-        ArrayList<Token> output = new ArrayList<>();
+    public Stack<Token> feed(String source) {
+        Stack<Token> output = new Stack<Token>();
+        int relativePos = 0;
 
-        while (!source.isEmpty()) {
+        while (relativePos < source.length()) {
             Token result = null;
             for (TokenType attempt : TokenType.values()) {
                 Pattern regex = attempt.getRegex();
-                Matcher m = regex.matcher(source);
+                Matcher m = regex.matcher(source.subSequence(relativePos, source.length()));
 
                 // Match token starting at this index
                 if (m.find()) {
                     String matchedString = m.group(0);
                     result = new Token(attempt, matchedString);
-                    source = source.substring(matchedString.length());
+                    relativePos += matchedString.length();
 
                     break;
                 }
             }
             if (result == null) { return null; }
-            output.add(result);
+            output.push(result);
         }
 
         return output;
