@@ -1,10 +1,19 @@
 package parser;
 
+import java.util.List;
 import expr.Expr;
 import token.Token;
 
 public class Parser {
-   public Expr parse(int rbp) {
+    private List<Token> tokens;
+    private int pos;
+
+    public Parser(List<Token> tokens) {
+        this.tokens = tokens;
+        pos = 0;
+    }
+
+    public Expr parse(int rbp) {
         Token t = next();
         Expr left = t.nud(this);
         while (t.lbp() > rbp) {
@@ -15,10 +24,12 @@ public class Parser {
     }
 
     public Token next() {
-        return null; // placeholder
+        Token t = peek();
+        ++pos;
+        return t;
     }
 
     public Token peek() {
-        return null; // placeholder
+        return tokens.get(pos);
     }
 }
