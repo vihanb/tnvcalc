@@ -6,6 +6,10 @@ import parser.Parser;
 public abstract class Token {
     private int pos;
 
+    public Token() {
+        pos = -1;
+    }
+
     public Token(int pos) {
         this.pos = pos;
     }
