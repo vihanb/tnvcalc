@@ -12,20 +12,20 @@ public class Parser {
     }
 
     public Expr parse(int rbp) {
-        Token t = next();
+        Token t = this.next();
         Expr left = t.nud(this);
         while (t.lbp() > rbp) {
-            t = next();
+            t = this.next();
             left = t.led(this, left);
         }
         return left;
     }
 
     public Token next() {
-        return tokens.remove();
+        return this.tokens.remove();
     }
 
     public Token peek() {
-        return tokens.element();
+        return this.tokens.element();
     }
 }

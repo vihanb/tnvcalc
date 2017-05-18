@@ -7,7 +7,7 @@ public abstract class Token {
     private int pos;
 
     public Token() {
-        pos = -1;
+        this.pos = -1;
     }
 
     public Token(int pos) {
@@ -15,7 +15,7 @@ public abstract class Token {
     }
 
     public int getPos() {
-        return pos;
+        return this.pos;
     }
 
     public Expr nud(Parser parser) {
