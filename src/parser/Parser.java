@@ -1,16 +1,14 @@
 package parser;
 
-import java.util.List;
+import java.util.Queue;
 import expr.Expr;
 import token.Token;
 
 public class Parser {
-    private List<Token> tokens;
-    private int pos;
+    private Queue<Token> tokens;
 
-    public Parser(List<Token> tokens) {
+    public Parser(Queue<Token> tokens) {
         this.tokens = tokens;
-        pos = 0;
     }
 
     public Expr parse(int rbp) {
@@ -24,12 +22,10 @@ public class Parser {
     }
 
     public Token next() {
-        Token t = peek();
-        ++pos;
-        return t;
+        return tokens.remove();
     }
 
     public Token peek() {
-        return tokens.get(pos);
+        return tokens.element();
     }
 }
