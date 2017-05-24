@@ -1,32 +1,25 @@
 package token;
 
-import expr.Expr;
-import parser.Parser;
-
-public abstract class Token {
+public class Token {
+    private TokenType type;
+    private String text;
     private int pos;
 
-    public Token() {
-        this.pos = -1;
+    public Token(TokenType type, String text, int pos) {
+        this.type = type;
+        this.text = text;
+        this.pos = pos;
     }
 
-    public Token(int pos) {
-        this.pos = pos;
+    public TokenType getType() {
+        return this.type;
+    }
+
+    public String getText() {
+        return this.text;
     }
 
     public int getPos() {
         return this.pos;
-    }
-
-    public Expr nud(Parser parser) {
-        return null; // placeholder
-    }
-
-    public Expr led(Parser parser, Expr left) {
-        return null; // placeholder
-    }
-
-    public int lbp() {
-        return 0; // placeholder
     }
 }
