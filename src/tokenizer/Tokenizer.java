@@ -10,7 +10,7 @@ public class Tokenizer {
 
     private int position;
     public Queue<Token> feed(String source) {
-        Stack<Token> output = new Stack<Token>();
+        Deque<Token> output = new ArrayDeque<Token>();
         int relativePos = 0;
 
         while (relativePos < source.length()) {
@@ -37,8 +37,6 @@ public class Tokenizer {
             output.push(result);
         }
 
-        Queue<Token> queue = new ArrayDeque<Token>();
-        queue.addAll(output);
-        return queue;
+        return output;
     }
 }
