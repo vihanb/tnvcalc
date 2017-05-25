@@ -25,18 +25,15 @@ public class Main {
     }
 
     private static String evaluate(String input, boolean shouldTime) {
-        long start = System.nanoTime();
-
-//         Tokenizer tok = new Tokenizer();
-//         Stack<Token> toks = tok.feed(input);
-//         if (toks == null) return null;
-//         Stack<Token> evalStack = new Parser().parse(toks);
-//         Evaluator e = new Evaluator(evalStack);
-// 
-//         long end = System.nanoTime();
-//         System.out.println("Operation took: " + ((double)(end - start) / 1000000) + "ms");
-
-//         return e.withBigDecimal();
-        return null;
+        Tokenizer tokenizer = new Tokenizer();
+        Queue<Token> tokens = tokenizer.feed(input);
+        if (tokens == null) {
+            return "Error";
+        }
+        Expr ast = new Parser(tokens).parse(0);
+        if (ast == null) {
+            return "Error";
+        }
+        return Double.toString(ast.eval());
     }
 }
