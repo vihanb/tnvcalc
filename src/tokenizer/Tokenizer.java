@@ -1,6 +1,6 @@
 package tokenizer;
 
-import java.util.Stack;
+import java.util.*;
 import java.util.regex.*;
 
 public class Tokenizer {
@@ -9,8 +9,8 @@ public class Tokenizer {
     }
 
     private int position;
-    public Stack<Token> feed(String source) {
-        Stack<Token> output = new Stack<Token>();
+    public Queue<Token> feed(String source) {
+        Deque<Token> output = new ArrayDeque<Token>();
         int relativePos = 0;
 
         while (relativePos < source.length()) {
