@@ -46,7 +46,20 @@ public class Parser {
     protected Expr nud(Token token) {
         switch (token.getType()) {
         case NUMBER:
-            return new NumberExpr(Double.parseDouble(token.getText()));
+            double value;
+            switch (token.getText()) {
+            case "pi":
+            case "PI":
+                value = Math.PI;
+                break;
+            case "e":
+            case "E":
+                value = Math.E;
+                break;
+            default:
+                value = Double.parseDouble(token.getText());
+            }
+            return new NumberExpr(value);
         case FUNCTION:
             return new FuncExpr(token.getText(), this.parse(100));
         case MINUS:

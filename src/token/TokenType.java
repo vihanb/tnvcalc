@@ -10,7 +10,7 @@ public enum TokenType {
     CARET("^\\^"),
     LPAREN("^\\("),
     RPAREN("^\\)"),
-    NUMBER("^-?(\\d*\\.\\d+|\\d+)"),
+    NUMBER("^-?(\\d*\\.\\d+|\\d+|pi|PI|e|E)"),
     FUNCTION("\\p{Alpha}+"),
     EOF("$");
 
