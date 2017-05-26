@@ -20,7 +20,7 @@ public class Parser {
     public Expr parse(int rbp) {
         Token token = this.next();
         Expr left = this.nud(token);
-        while (this.lbp(token) > rbp) {
+        while (this.lbp(this.peek()) > rbp) {
             token = this.next();
             left = this.led(left, token);
         }
@@ -28,11 +28,19 @@ public class Parser {
     }
 
     public Token next() {
-        return this.tokens.remove();
+        Token token = this.tokens.poll();
+        if (token == null) {
+            return new Token(TokenType.EOF, "");
+        }
+        return token;
     }
 
     public Token peek() {
-        return this.tokens.element();
+        Token token = this.tokens.peek();
+        if (token == null) {
+            return new Token(TokenType.EOF, "");
+        }
+        return token;
     }
 
     protected Expr nud(Token token) {
@@ -60,7 +68,6 @@ public class Parser {
         case MINUS:
         case STAR:
         case SLASH:
-            System.out.println("binary expr");
             return new BinaryExpr(left, this.parse(this.lbp(token)),
                 token.getType());
         case CARET:
