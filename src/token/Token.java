@@ -16,4 +16,8 @@ public class Token {
     public String getText() {
         return this.text;
     }
+
+    public String toString() {
+        return this.type.toString() + " " + this.text;
+    }
 }
