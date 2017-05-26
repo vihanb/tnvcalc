@@ -11,7 +11,8 @@ public enum TokenType {
     SLASH("^\\/"),
     CARET("^\\^"),
     LPAREN("^\\("),
-    RPAREN("^\\)");
+    RPAREN("^\\)"),
+    EOF("$");
 
     private Pattern regex;
 
