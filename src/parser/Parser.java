@@ -53,11 +53,14 @@ public class Parser {
             return new UnaryExpr(this.parse(100), TokenType.MINUS);
         case LPAREN:
             Expr expr = this.parse(0);
-            if (this.peek().getType() == TokenType.RPAREN) {
+            if (this.peek().getType() != TokenType.RPAREN) {
+                System.out.println("error: unmatched lparen");
                 return new NullExpr();
             }
+            this.next();
             return expr;
         default:
+            System.out.println("error: " + token + " is not a unary operator");
             return new NullExpr();
         }
     }
@@ -74,6 +77,7 @@ public class Parser {
             return new BinaryExpr(left, this.parse(this.lbp(token) - 1),
                 token.getType());
         default:
+            System.out.println("error: " + token + " is not a binary operator");
             return new NullExpr();
         }
     }
@@ -89,7 +93,7 @@ public class Parser {
         case CARET:
             return 30;
         default:
-            return 0; // placeholder
+            return 0;
         }
     }
 }
