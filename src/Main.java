@@ -31,15 +31,15 @@ public class Main {
         Tokenizer tokenizer = new Tokenizer();
         Queue<Token> tokens = tokenizer.feed(input);
         if (tokens == null) {
-            return "Error";
+            return "Format error";
         }
         Expr ast = new Parser(tokens).parse(0);
         if (ast == null) {
-            return "Error";
+            return "Syntax error";
         }
         double value = ast.eval();
         if (Double.isNaN(value)) {
-            return "Error";
+            return "Math error";
         }
         return Double.toString(value);
     }
