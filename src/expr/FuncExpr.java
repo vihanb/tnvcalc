@@ -35,4 +35,8 @@ public class FuncExpr extends Expr {
             return Double.NaN;
         }
     }
+
+    public String toString() {
+        return "(" + this.func + this.arg.toString() + ")";
+    }
 }

@@ -29,4 +29,29 @@ public class BinaryExpr extends Expr {
             return Double.NaN;
         }
     }
+
+    public String toString() {
+        String operation;
+        switch (op) {
+        case PLUS:
+            operation = "add";
+            break;
+        case MINUS:
+            operation = "subtract";
+            break;
+        case STAR:
+            operation = "multiply";
+            break;
+        case SLASH:
+            operation = "divide";
+            break;
+        case CARET:
+            operation = "power";
+            break;
+        default:
+            operation = "error";
+        }
+        return "(" + operation + " " + left.toString() + ", " +
+            right.toString() + ")";
+    }
 }

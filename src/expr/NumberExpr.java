@@ -10,4 +10,8 @@ public class NumberExpr extends Expr {
     public double eval() {
         return value;
     }
+
+    public String toString() {
+        return "(number " + this.value + ")";
+    }
 }

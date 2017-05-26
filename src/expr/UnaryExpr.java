@@ -19,4 +19,16 @@ public class UnaryExpr extends Expr {
             return Double.NaN;
         }
     }
+
+    public String toString() {
+        String operation;
+        switch (this.op) {
+        case MINUS:
+            operation = "negate";
+            break;
+        default:
+            operation = "error";
+        }
+        return "(" + operation + this.expr.toString() + ")";
+    }
 }
