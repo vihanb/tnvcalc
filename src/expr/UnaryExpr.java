@@ -29,6 +29,6 @@ public class UnaryExpr extends Expr {
         default:
             operation = "error";
         }
-        return "(" + operation + this.expr.toString() + ")";
+        return "(" + operation + " " + this.expr.toString() + ")";
     }
 }

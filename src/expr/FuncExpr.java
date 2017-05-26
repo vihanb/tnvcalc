@@ -37,6 +37,6 @@ public class FuncExpr extends Expr {
     }
 
     public String toString() {
-        return "(" + this.func + this.arg.toString() + ")";
+        return "(" + this.func + " " + this.arg.toString() + ")";
     }
 }
