@@ -1,8 +1,11 @@
-import tokenizer.*;
-import java.util.Stack;
-import java.util.Scanner;
+import expr.Expr;
+import parser.Parser;
+import token.Token;
+import tokenizer.Tokenizer;
 import java.util.Arrays;
+import java.util.Scanner;
 import java.util.List;
+import java.util.Queue;
 import java.io.Console;
 
 public class Main {
@@ -25,18 +28,19 @@ public class Main {
     }
 
     private static String evaluate(String input, boolean shouldTime) {
-        long start = System.nanoTime();
-
-//         Tokenizer tok = new Tokenizer();
-//         Stack<Token> toks = tok.feed(input);
-//         if (toks == null) return null;
-//         Stack<Token> evalStack = new Parser().parse(toks);
-//         Evaluator e = new Evaluator(evalStack);
-// 
-//         long end = System.nanoTime();
-//         System.out.println("Operation took: " + ((double)(end - start) / 1000000) + "ms");
-
-//         return e.withBigDecimal();
-        return null;
+        Tokenizer tokenizer = new Tokenizer();
+        Queue<Token> tokens = tokenizer.feed(input);
+        if (tokens == null) {
+            return "Format error";
+        }
+        Expr ast = new Parser(tokens).parse(0);
+        if (ast == null) {
+            return "Syntax error";
+        }
+        double value = ast.eval();
+        if (Double.isNaN(value)) {
+            return "Math error";
+        }
+        return Double.toString(value);
     }
 }

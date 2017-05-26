@@ -1,5 +1,7 @@
 package tokenizer;
 
+import token.Token;
+import token.TokenType;
 import java.util.*;
 import java.util.regex.*;
 
@@ -34,7 +36,7 @@ public class Tokenizer {
                 }
             }
             if (result == null) { return null; }
-            output.push(result);
+            output.add(result);
         }
 
         return output;
