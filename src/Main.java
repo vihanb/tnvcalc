@@ -37,6 +37,10 @@ public class Main {
         if (ast == null) {
             return "Error";
         }
-        return Double.toString(ast.eval());
+        double value = ast.eval();
+        if (Double.isNaN(value)) {
+            return "Error";
+        }
+        return Double.toString(value);
     }
 }
