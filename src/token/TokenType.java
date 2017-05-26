@@ -4,7 +4,12 @@ import java.util.regex.Pattern;
 
 public enum TokenType {
     NUMBER("^-?(\\d*\\.\\d+|\\d+)"),
-    OPERATOR("^[-+/*^]"),
+    FUNCTION("\\p{Alpha}+"),
+    PLUS("^\\+"),
+    MINUS("^\\-"),
+    STAR("^\\*"),
+    SLASH("^\\/"),
+    CARET("^\\^"),
     LPAREN("^\\("),
     RPAREN("^\\)");
 
