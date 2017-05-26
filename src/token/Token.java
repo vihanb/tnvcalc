@@ -3,12 +3,10 @@ package token;
 public class Token {
     private TokenType type;
     private String text;
-    private int pos;
 
-    public Token(TokenType type, String text, int pos) {
+    public Token(TokenType type, String text) {
         this.type = type;
         this.text = text;
-        this.pos = pos;
     }
 
     public TokenType getType() {
@@ -17,9 +15,5 @@ public class Token {
 
     public String getText() {
         return this.text;
-    }
-
-    public int getPos() {
-        return this.pos;
     }
 }
