@@ -3,8 +3,6 @@ package token;
 import java.util.regex.Pattern;
 
 public enum TokenType {
-    NUMBER("^-?(\\d*\\.\\d+|\\d+)"),
-    FUNCTION("\\p{Alpha}+"),
     PLUS("^\\+"),
     MINUS("^\\-"),
     STAR("^\\*"),
@@ -12,6 +10,8 @@ public enum TokenType {
     CARET("^\\^"),
     LPAREN("^\\("),
     RPAREN("^\\)"),
+    NUMBER("^-?(\\d*\\.\\d+|\\d+)"),
+    FUNCTION("\\p{Alpha}+"),
     EOF("$");
 
     private Pattern regex;
