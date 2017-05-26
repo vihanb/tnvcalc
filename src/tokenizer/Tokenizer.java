@@ -36,7 +36,7 @@ public class Tokenizer {
                 }
             }
             if (result == null) { return null; }
-            output.push(result);
+            output.add(result);
         }
 
         return output;
