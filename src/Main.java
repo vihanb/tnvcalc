@@ -5,13 +5,15 @@ import javafx.fxml.*;
 import java.io.*;
 
 public class Main extends Application {
-    public static void main(String[] args) {
-        launch(args);
+    private FXMLLoader loader;
+
+    public Main() {
+        this.loader = new FXMLLoader(getClass().getResource("Calculator.fxml"));
     }
 
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("/Calculator.fmxl"));
+        Parent root = loader.load();
         Scene scene = new Scene(root, 300, 275);
         stage.setTitle("hello example title dont forget to replace.");
         stage.setScene(scene);
