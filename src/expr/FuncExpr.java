@@ -10,7 +10,7 @@ public class FuncExpr extends Expr {
     }
 
     public double eval() {
-        switch (func) {
+        switch (func.toLowerCase()) {
         case "abs":
             return Math.abs(arg.eval());
         case "acos":

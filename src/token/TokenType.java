@@ -10,14 +10,14 @@ public enum TokenType {
     CARET("^\\^"),
     LPAREN("^\\("),
     RPAREN("^\\)"),
-    NUMBER("^-?(\\d*\\.\\d+|\\d+|pi|PI|e|E|ans|ANS)"),
+    NUMBER("^-?(\\d*\\.\\d+|\\d+|pi|e|ans)"),
     FUNCTION("\\p{Alpha}+"),
     EOF("$");
 
     private Pattern regex;
 
     private TokenType(String regex) {
-        this.regex = Pattern.compile(regex);
+        this.regex = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
     }
 
     public Pattern getRegex() {
