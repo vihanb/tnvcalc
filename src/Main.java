@@ -24,6 +24,9 @@ public class Main extends Application {
     private String pendingInput = "";
 
     public Main() {
+        Main.tokenizer = new Tokenizer();
+        Main.parser = new Parser();
+
         this.loader = new FXMLLoader(getClass().getResource("Calculator.fxml"));
     }
 
@@ -44,12 +47,16 @@ public class Main extends Application {
         Label input = (Label) scene.lookup("#input");
         Label output = (Label) scene.lookup("#output");
 
+        Main self = this;
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             public void handle(KeyEvent key) {
+                key.consume();
                 if (key.getCode() == KeyCode.ENTER) {
-                    Main.this.submitCalc();
+                    self.submitCalc();
+                } else if (key.getCode() == KeyCode.BACK_SPACE) {
+                    self.setInput(self.pendingInput.substring(0, self.pendingInput.length() - 1));
                 } else {
-                    Main.this.appendInput(key.getText());
+                    self.appendInput(key.getText());
                 }
             }
         });
@@ -74,6 +81,9 @@ public class Main extends Application {
         this.pendingInput = str;
         this.input.setText(str);
     }
+
+    private static Tokenizer tokenizer;
+    private static Parser parser;
 
     private void submitCalc() {
         String toSubmit = this.pendingInput;
