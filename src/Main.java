@@ -9,7 +9,12 @@ import java.util.Queue;
 import java.io.Console;
 
 public class Main {
+    private static Tokenizer tokenizer;
+    private static Parser parser;
+
     public static void main(String[] args) {
+        Main.tokenizer = new Tokenizer();
+        Main.parser = new Parser();
         List<String> argv = Arrays.asList(args);
         boolean shouldTime = argv.contains("-time");
 
@@ -28,12 +33,12 @@ public class Main {
     }
 
     private static String evaluate(String input, boolean shouldTime) {
-        Tokenizer tokenizer = new Tokenizer();
-        Queue<Token> tokens = tokenizer.feed(input);
+        Queue<Token> tokens = Main.tokenizer.feed(input);
         if (tokens == null) {
             return "Format error";
         }
-        Expr ast = new Parser(tokens).parse(0);
+        Main.parser.setTokens(tokens);
+        Expr ast = Main.parser.parse(0);
         if (ast == null) {
             return "Syntax error";
         }
@@ -41,6 +46,7 @@ public class Main {
         if (Double.isNaN(value)) {
             return "Math error";
         }
+        Main.parser.setPreviousAnswer(value);
         return Double.toString(value);
     }
 }
