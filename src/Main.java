@@ -9,7 +9,7 @@ import javafx.event.*;
 
 import expr.Expr;
 import parser.Parser;
-import tokenizer.Token;
+import token.Token;
 import tokenizer.Tokenizer;
 import java.util.*;
 
@@ -33,7 +33,10 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
 
-        this.output = (Label) scene.lookup("#output");
+        this.pendingInput = "";
+
+        scene.getRoot().applyCss();
+
         this.input = (Label) scene.lookup("#input");
 
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -41,19 +44,41 @@ public class Main extends Application {
                 if (key.getCode() == KeyCode.ENTER) {
                     Main.this.submitCalc();
                 } else {
-                    Main.this.pendingInput += key.getText();
+                    Main.this.appendInput(key.getText());
                 }
             }
         });
     }
 
-    public void submitCalc() {
+    @FXML
+    private void didClickCalcButton(ActionEvent event) {
+        Button src = (Button) event.getSource();
+        String btn = src.getText();
+        switch (btn) {
+            case "C": this.setInput(""); break;
+            case "=": this.submitCalc(); break;
+            default: this.appendInput(btn);
+        }
+    }
+
+    private void appendInput(String str) {
+        this.setInput(this.pendingInput + str);
+    }
+
+    private void setInput(String str) {
+        this.pendingInput = str;
+        System.out.println(str);
+        System.out.println(this.input);
+        this.input.setText(str);
+    }
+
+    private void submitCalc() {
         String toSubmit = this.pendingInput;
         this.pendingInput = "";
         
         Tokenizer tokenizer = new Tokenizer();
         Queue<Token> tokens = tokenizer.feed(toSubmit);
-        String res;
+        String res = null;
         if (tokens == null) {
             res = "Format error";
         }
