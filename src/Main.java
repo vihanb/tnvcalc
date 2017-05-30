@@ -16,8 +16,9 @@ import java.util.*;
 
 public class Main extends Application {
     private FXMLLoader loader;
-    private Label output;
-    private Label input;
+
+    @FXML private Label output;
+    @FXML private Label input;
 
     private String pendingInput = "";
 
@@ -37,8 +38,8 @@ public class Main extends Application {
 
         scene.getRoot().applyCss();
 
-        this.input = (Label) scene.lookup("#input");
-        this.output = (Label) scene.lookup("#output");
+        Label input = (Label) scene.lookup("#input");
+        Label output = (Label) scene.lookup("#output");
 
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             public void handle(KeyEvent key) {
