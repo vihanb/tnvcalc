@@ -12,9 +12,23 @@ import java.util.Queue;
 
 public class Parser {
     private Queue<Token> tokens;
+    private double previousAnswer;
 
-    public Parser(Queue<Token> tokens) {
+    public Parser() {
+        this.tokens = null;
+        this.previousAnswer = Double.NaN;
+    }
+
+    public void setTokens(Queue<Token> tokens) {
         this.tokens = tokens;
+    }
+
+    public double getPreviousAnswer() {
+        return previousAnswer;
+    }
+
+    public void setPreviousAnswer(double previousAnswer) {
+        this.previousAnswer = previousAnswer;
     }
 
     public Expr parse(int rbp) {
@@ -47,14 +61,15 @@ public class Parser {
         switch (token.getType()) {
         case NUMBER:
             double value;
-            switch (token.getText()) {
+            switch (token.getText().toLowerCase()) {
             case "pi":
-            case "PI":
                 value = Math.PI;
                 break;
             case "e":
-            case "E":
                 value = Math.E;
+                break;
+            case "ans":
+                value = this.previousAnswer;
                 break;
             default:
                 value = Double.parseDouble(token.getText());

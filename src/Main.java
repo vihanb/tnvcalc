@@ -85,7 +85,8 @@ public class Main extends Application {
         if (tokens == null) {
             res = "Format error";
         }
-        Expr ast = new Parser(tokens).parse(0);
+        Main.parser.setTokens(tokens);
+        Expr ast = Main.parser.parse(0);
         if (ast == null) {
             res = "Syntax error";
         }
