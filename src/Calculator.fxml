@@ -39,7 +39,7 @@
       <Button layoutX="65.0" layoutY="115.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="47.0" prefWidth="69.0" text="cos" />
       <Button layoutX="3.0" layoutY="162.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="47.0" prefWidth="64.0" text="asin" />
       <Button layoutX="67.0" layoutY="163.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="47.0" prefWidth="69.0" text="sin" />
-      <Label id="input" layoutX="13.0" layoutY="-4.0" prefHeight="74.0" prefWidth="357.0" text="0" textAlignment="RIGHT">
+      <Label fx:id="input" id="input" layoutX="13.0" layoutY="-4.0" prefHeight="74.0" prefWidth="357.0" text="0" textAlignment="RIGHT">
          <font>
             <Font size="32.0" />
          </font>

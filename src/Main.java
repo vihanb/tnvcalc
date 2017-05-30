@@ -38,6 +38,7 @@ public class Main extends Application {
         scene.getRoot().applyCss();
 
         this.input = (Label) scene.lookup("#input");
+        this.output = (Label) scene.lookup("#output");
 
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             public void handle(KeyEvent key) {
@@ -67,8 +68,6 @@ public class Main extends Application {
 
     private void setInput(String str) {
         this.pendingInput = str;
-        System.out.println(str);
-        System.out.println(this.input);
         this.input.setText(str);
     }
 
