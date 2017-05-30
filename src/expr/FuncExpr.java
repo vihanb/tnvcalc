@@ -11,26 +11,30 @@ public class FuncExpr extends Expr {
 
     public double eval() {
         switch (func.toLowerCase()) {
-        case "abs":
-            return Math.abs(arg.eval());
         case "acos":
             return Math.acos(arg.eval());
         case "asin":
             return Math.asin(arg.eval());
         case "atan":
             return Math.atan(arg.eval());
-        case "ceil":
-            return Math.ceil(arg.eval());
         case "cos":
             return Math.cos(arg.eval());
-        case "log":
+        case "cosh":
+            return Math.cosh(arg.eval());
+        case "ln":
             return Math.log(arg.eval());
+        case "log":
+            return Math.log10(arg.eval());
         case "sin":
             return Math.sin(arg.eval());
+        case "sinh":
+            return Math.sinh(arg.eval());
         case "sqrt":
             return Math.sqrt(arg.eval());
         case "tan":
             return Math.tan(arg.eval());
+        case "tanh":
+            return Math.tanh(arg.eval());
         default:
             return Double.NaN;
         }
