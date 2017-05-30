@@ -6,6 +6,7 @@ import java.io.*;
 import javafx.scene.control.*;
 import javafx.scene.input.*;
 import javafx.event.*;
+import javafx.scene.paint.*;
 
 import expr.Expr;
 import parser.Parser;
@@ -29,8 +30,10 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         Parent root = loader.load();
-        Scene scene = new Scene(root, 300, 275);
+        Scene scene = new Scene(root, 404, 381);
+        stage.setResizable(false);
         stage.setTitle("hello example title dont forget to replace.");
+        scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
 
