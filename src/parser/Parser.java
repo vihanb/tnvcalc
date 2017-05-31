@@ -81,7 +81,8 @@ public class Parser {
             return new UnaryExpr(this.parse(100), TokenType.MINUS);
         case LPAREN:
             Expr expr = this.parse(0);
-            if (this.peek().getType() != TokenType.RPAREN) {
+            TokenType tt = this.peek().getType();
+            if (tt != TokenType.RPAREN && tt != TokenType.EOF) {
                 System.out.println("error: unmatched lparen");
                 return new NullExpr();
             }
@@ -107,7 +108,8 @@ public class Parser {
         case LPAREN:
             Expr expr = new BinaryExpr(left, this.parse(this.lbp(token)),
                 TokenType.STAR);
-            if (this.peek().getType() != TokenType.RPAREN) {
+            TokenType tt = this.peek().getType();
+            if (tt != TokenType.RPAREN && tt != TokenType.EOF) {
                 System.out.println("error: unmatched lparen");
                 return new NullExpr();
             }
