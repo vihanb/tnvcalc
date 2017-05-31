@@ -16,6 +16,8 @@ import java.util.*;
 
 
 public class Main extends Application {
+    private Tokenizer tokenizer;
+    private Parser parser;
     private FXMLLoader loader;
 
     @FXML private Label output;
@@ -24,8 +26,8 @@ public class Main extends Application {
     private String pendingInput = "";
 
     public Main() {
-        Main.tokenizer = new Tokenizer();
-        Main.parser = new Parser();
+        this.tokenizer = new Tokenizer();
+        this.parser = new Parser();
 
         this.loader = new FXMLLoader(getClass().getResource("Calculator.fxml"));
     }
@@ -43,9 +45,6 @@ public class Main extends Application {
         this.pendingInput = "";
 
         scene.getRoot().applyCss();
-
-        Label input = (Label) scene.lookup("#input");
-        Label output = (Label) scene.lookup("#output");
 
         Main self = this;
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -82,21 +81,17 @@ public class Main extends Application {
         this.input.setText(str);
     }
 
-    private static Tokenizer tokenizer;
-    private static Parser parser;
-
     private void submitCalc() {
         String toSubmit = this.pendingInput;
         this.pendingInput = "";
         
-        Tokenizer tokenizer = new Tokenizer();
-        Queue<Token> tokens = tokenizer.feed(toSubmit);
+        Queue<Token> tokens = this.tokenizer.feed(toSubmit);
         String res = null;
         if (tokens == null) {
             res = "Format error";
         }
-        Main.parser.setTokens(tokens);
-        Expr ast = Main.parser.parse(0);
+        this.parser.setTokens(tokens);
+        Expr ast = this.parser.parse(0);
         if (ast == null) {
             res = "Syntax error";
         }
@@ -104,7 +99,7 @@ public class Main extends Application {
         if (Double.isNaN(value)) {
             res = "Math error";
         }
-
+        this.parser.setPreviousAnswer(value);
         if (res != null)
             this.output.setText(res);
         else
