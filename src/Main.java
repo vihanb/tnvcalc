@@ -16,6 +16,8 @@ import java.util.*;
 
 
 public class Main extends Application {
+    public static Main main;
+
     private Tokenizer tokenizer;
     private Parser parser;
     private FXMLLoader loader;
@@ -26,6 +28,8 @@ public class Main extends Application {
     private String pendingInput = "";
 
     public Main() {
+        Main.main = this;
+
         this.tokenizer = new Tokenizer();
         this.parser = new Parser();
 
@@ -46,16 +50,15 @@ public class Main extends Application {
 
         scene.getRoot().applyCss();
 
-        Main self = this;
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             public void handle(KeyEvent key) {
                 key.consume();
                 if (key.getCode() == KeyCode.ENTER) {
-                    self.submitCalc();
+                    Main.main.submitCalc();
                 } else if (key.getCode() == KeyCode.BACK_SPACE) {
-                    self.setInput(self.pendingInput.substring(0, self.pendingInput.length() - 1));
+                    Main.main.setInput(Main.main.pendingInput.substring(0, Main.main.pendingInput.length() - 1));
                 } else {
-                    self.appendInput(key.getText());
+                    Main.main.appendInput(key.getText());
                 }
             }
         });
