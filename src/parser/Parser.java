@@ -107,7 +107,6 @@ public class Parser {
             return new BinaryExpr(left, this.parse(this.lbp(token) - 1),
                 token.getType());
         case LPAREN:
-        case RPAREN:
             Expr expr = new BinaryExpr(left, this.parse(this.lbp(token)),
                 TokenType.STAR);
             TokenType tt = this.peek().getType();
@@ -134,7 +133,6 @@ public class Parser {
         case STAR:
         case SLASH:
         case LPAREN:
-        case RPAREN:
         case NUMBER:
         case FUNCTION:
             return 20;
