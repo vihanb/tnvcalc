@@ -76,6 +76,7 @@ public class Main extends Application {
     }
 
     private void appendInput(String str) {
+        if (str.matches("[a-z]+") && str.length() >= 2) str += "(";
         this.setInput(this.pendingInput + str);
     }
 
