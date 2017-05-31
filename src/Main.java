@@ -37,7 +37,7 @@ public class Main extends Application {
         Parent root = loader.load();
         Scene scene = new Scene(root, 404, 381);
         stage.setResizable(false);
-        stage.setTitle("hello example title dont forget to replace.");
+        stage.setTitle("TNVCalc");
         scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
