@@ -1,0 +1,20 @@
+.calcBtn {
+    -fx-background-radius: 0;
+    -fx-background-color:  #D6D6D6;
+    -fx-border-color: #3A3A3A;
+
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.calcBtn.orange {
+    -fx-background-color:  #F5923E;
+}
+
+.calcBtn:pressed {
+    -fx-background-color: #8E8E8E;
+}
+
+.calcBtn.orange:pressed {
+    -fx-background-color: #C2732F;
+}

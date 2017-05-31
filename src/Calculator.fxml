@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="381.0" prefWidth="404.0" style="-fx-background-color: #3A3A3A;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main">
+   <children>
+      <Button contentDisplay="CENTER" layoutX="346.0" layoutY="208.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="6">
+         <font>
+            <Font size="22.0" />
+         </font></Button>
+      <Button contentDisplay="CENTER" layoutX="346.0" layoutY="266.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="3">
+         <font>
+            <Font size="22.0" />
+         </font></Button>
+      <Button contentDisplay="CENTER" layoutX="346.0" layoutY="324.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" stylesheets="@Calculator.css" text="=" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <styleClass>
+            <String fx:value="calcBtn" />
+            <String fx:value="orange" />
+         </styleClass></Button>
+      <Button contentDisplay="CENTER" layoutX="346.0" layoutY="92.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" stylesheets="@Calculator.css" text="C" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <styleClass>
+            <String fx:value="calcBtn" />
+            <String fx:value="orange" />
+         </styleClass></Button>
+      <Button contentDisplay="CENTER" layoutX="288.0" layoutY="92.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" stylesheets="@Calculator.css" text="^" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <styleClass>
+            <String fx:value="calcBtn" />
+            <String fx:value="orange" />
+         </styleClass></Button>
+      <Label id="input" fx:id="input" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="42.0" layoutY="14.0" prefHeight="45.0" prefWidth="357.0" text="0" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Label>
+      <Label id="output" fx:id="output" alignment="CENTER_RIGHT" layoutX="1.0" layoutY="61.0" prefHeight="31.0" prefWidth="398.0" text="0" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Button contentDisplay="CENTER" layoutX="230.0" layoutY="92.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" stylesheets="@Calculator.css" text=")" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <styleClass>
+            <String fx:value="calcBtn" />
+            <String fx:value="orange" />
+         </styleClass>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="230.0" layoutY="150.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="7">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="172.0" layoutY="150.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" stylesheets="@Calculator.css" text="+" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <styleClass>
+            <String fx:value="calcBtn" />
+            <String fx:value="orange" />
+         </styleClass>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="172.0" layoutY="208.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" stylesheets="@Calculator.css" text="-" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <styleClass>
+            <String fx:value="calcBtn" />
+            <String fx:value="orange" />
+         </styleClass>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="172.0" layoutY="266.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" stylesheets="@Calculator.css" text="*" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <styleClass>
+            <String fx:value="calcBtn" />
+            <String fx:value="orange" />
+         </styleClass>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="172.0" layoutY="324.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" stylesheets="@Calculator.css" text="/" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <styleClass>
+            <String fx:value="calcBtn" />
+            <String fx:value="orange" />
+         </styleClass>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="172.0" layoutY="92.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" stylesheets="@Calculator.css" text="(" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <styleClass>
+            <String fx:value="calcBtn" />
+            <String fx:value="orange" />
+         </styleClass>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="114.0" layoutY="92.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="cos">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="114.0" layoutY="150.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="sin">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="56.0" layoutY="208.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="atan">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="56.0" layoutY="266.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="log">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="56.0" layoutY="92.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="acos">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="-2.0" layoutY="92.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="cosh">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="-2.0" layoutY="150.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="sinh">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="288.0" layoutY="150.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="8">
+         <font>
+            <Font size="22.0" />
+         </font></Button>
+      <Button contentDisplay="CENTER" layoutX="346.0" layoutY="150.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="9">
+         <font>
+            <Font size="22.0" />
+         </font></Button>
+      <Button contentDisplay="CENTER" layoutX="56.0" layoutY="150.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="asin">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="114.0" layoutY="208.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="tan">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="114.0" layoutY="266.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="sqrt">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="230.0" layoutY="208.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="4">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="56.0" layoutY="324.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="E">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="114.0" layoutY="324.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="PI">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="-2.0" layoutY="208.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="tanh">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="-2.0" layoutY="266.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="ln">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="230.0" layoutY="266.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="1">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="230.0" layoutY="324.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="0">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="-2.0" layoutY="324.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="ANS">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="288.0" layoutY="324.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text=".">
+         <font>
+            <Font size="22.0" />
+         </font></Button>
+      <Button contentDisplay="CENTER" layoutX="288.0" layoutY="208.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="5">
+         <font>
+            <Font size="22.0" />
+         </font></Button>
+      <Button contentDisplay="CENTER" layoutX="288.0" layoutY="266.0" mnemonicParsing="false" onAction="#didClickCalcButton" prefHeight="59.0" prefWidth="59.0" styleClass="calcBtn" stylesheets="@Calculator.css" text="2">
+         <font>
+            <Font size="22.0" />
+         </font></Button>
+   </children>
+</AnchorPane>
