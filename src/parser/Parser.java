@@ -90,6 +90,7 @@ public class Parser {
             return expr;
         default:
             System.out.println("error: " + token + " is not a unary operator");
+        case EOF:
             return new NullExpr();
         }
     }
