@@ -104,6 +104,15 @@ public class Parser {
         case CARET:
             return new BinaryExpr(left, this.parse(this.lbp(token) - 1),
                 token.getType());
+        case LPAREN:
+            Expr expr = new BinaryExpr(left, this.parse(this.lbp(token)),
+                TokenType.STAR);
+            if (this.peek().getType() != TokenType.RPAREN) {
+                System.out.println("error: unmatched lparen");
+                return new NullExpr();
+            }
+            this.next();
+            return expr;
         default:
             System.out.println("error: " + token + " is not a binary operator");
             return new NullExpr();
@@ -117,6 +126,7 @@ public class Parser {
             return 10;
         case STAR:
         case SLASH:
+        case LPAREN:
             return 20;
         case CARET:
             return 30;
